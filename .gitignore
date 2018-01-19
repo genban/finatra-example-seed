@@ -1,0 +1,126 @@
+# Created by .ignore support plugin (hsz.mobi)
+## Scala template
+*.class
+*.log
+*.jar
+*.jar.old
+
+# sbt specific
+.cache
+.history
+.lib/
+/dist/*
+lib_managed/
+src_managed/
+project/target
+project/project
+/target
+project/boot/
+project/plugins/project/
+activator-sbt-*-shim.sbt
+
+# Scala-IDE specific
+.worksheet
+.scala_dependencies
+
+### Project statistics
+tmp
+dist
+logs
+stats
+
+### Project
+*/application.conf
+src/main/resources/application.conf
+src/main/resources/logback.xml
+/logs
+logs/*
+
+### Nodejs
+vue/node_modules
+
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
+
+*.iml
+
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
+
+# User-specific stuff:
+# .idea/workspace.xml
+# .idea/tasks.xml
+# .idea/dictionaries
+
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
+
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
+
+# Mongo Explorer plugin:
+# .idea/mongoSettings.xml
+
+# File-based project format:
+*.ipr
+*.iws
+*.eml
+
+# Plugin-specific files:
+
+# mpeltonen/sbt-idea plugin
+/.idea_modules
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+### SBT template
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+# Eclipse specific
+/.settings
+/.classpath
+/.project
+/.metadata
+
+# InteliJ IDEA
+.idea
+.idea_modules
+/*.iml
+/.idea
+/.idea*
+/out
+projectFilesBackup*
+
+# MacOS X specific
+.DS_Store
+
+# Atom editor specific
+_config.yml
+
+### PID
+# Java heap dump files
+java_pid*
+
+# Play Framework
+/RUNNING_PID
+
+# Finatra Framework
+.sbtserver*
+sbt-ui.sbt
+classes/
+logs/
+sbt-launch.jar
+/backup

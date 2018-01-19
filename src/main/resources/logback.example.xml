@@ -1,0 +1,50 @@
+<configuration>
+    <!--&lt;!&ndash; properties &ndash;&gt;-->
+    <!--<property name="logDir" value="/external_log/auth-service" />-->
+    <!--<property name="maxHistory" value="30" />-->
+
+    <!-- 控制台输出 ConsoleAppender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                <!-- %replace: 字符串替换; %caller: 方法调用栈. -->
+                <!-- (\bCaller.+?(?=\()): 正则, 匹配字符串"Caller...(",不含(号 -->
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %replace(%caller{1}){'(\bCaller.+?(?=\())|\r|\n|\s*|\t', ''} - %msg  [%thread] %n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <!--&lt;!&ndash; This is the kafkaAppender &ndash;&gt;-->
+    <!--<appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">-->
+    <!--&lt;!&ndash; This is the default encoder that encodes every log message to an utf8-encoded string  &ndash;&gt;-->
+    <!--<encoder class="com.github.danielwegener.logback.kafka.encoding.LayoutKafkaMessageEncoder">-->
+    <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+    <!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+    <!--</layout>-->
+    <!--</encoder>-->
+    <!--<topic>logs.auth-service</topic>-->
+    <!--<keyingStrategy class="com.github.danielwegener.logback.kafka.keying.RoundRobinKeyingStrategy" />-->
+    <!--<deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy" />-->
+
+    <!--&lt;!&ndash; each <producerConfig> translates to regular kafka-client config (format: key=value) &ndash;&gt;-->
+    <!--&lt;!&ndash; producer configs are documented here: https://kafka.apache.org/documentation.html#newproducerconfigs &ndash;&gt;-->
+    <!--&lt;!&ndash; bootstrap.servers is the only mandatory producerConfig &ndash;&gt;-->
+    <!--<producerConfig>bootstrap.servers=192.168.0.7:9092,192.168.0.8:9092</producerConfig>-->
+
+    <!--&lt;!&ndash; this is the fallback appender if kafka is not available. &ndash;&gt;-->
+    <!--<appender-ref ref="STDOUT"/>-->
+    <!--</appender>-->
+
+    <!-- Off these ones as they are annoying, and anyway we manage configuration ourself -->
+    <logger name="com.avaje.ebean.config.PropertyMapLoader" level="OFF" />
+    <logger name="com.avaje.ebeaninternal.server.core.XmlConfigLoader" level="OFF" />
+    <logger name="com.avaje.ebeaninternal.server.lib.BackgroundThread" level="OFF" />
+    <logger name="com.gargoylesoftware.htmlunit.javascript" level="OFF" />
+    <logger name="ch.qos.logback" level="WARN" />
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <!--<appender-ref ref="kafkaAppender" />-->
+    </root>
+
+</configuration>
